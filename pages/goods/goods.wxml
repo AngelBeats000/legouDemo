@@ -1,0 +1,68 @@
+<!--pages/goods/goods.wxml-->
+<view class='outer'>
+    <scroll-view scroll-y style='height:{{scrollHeight *2 }}rpx;'>
+    
+<!-- 轮播 -->
+        <swiper class='swiper' indicator-dots='{{indicator}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}' indicator-active-color='#ff9801' circular="{{true}}">
+            <swiper-item>
+                <image class='goodsimg' mode='widthFix' src='{{goods.thumb}}'></image>
+            </swiper-item>
+            <swiper-item wx:for="{{imgUrls}}">
+                <image class='goodsimg' mode='widthFix' src='{{item.goods_photo}}'></image>
+            </swiper-item>
+        </swiper>
+
+        <!-- 标题及价格等 -->
+        <view class='goodsinfo'>
+            <view class='goodstitle'>{{goods.goods_name}}</view>
+            <view class='goodsale'>
+                <view class='goodsale-left'>
+                    <text class='cprice'>￥ {{goods.shop_price}}</text>
+                    <text class='oprice'>￥ {{goods.market_price}}</text>
+                    <text class='snum'>销量{{goods.sale_num}}件</text>
+                </view>
+                <view class='goodsale-right'>
+                    <view class='goodsnum'>
+                        <text class='minus {{minusStatus}}' bindtap='bindMinus'>-</text>
+                        <input type='number' disabled value='{{num}}'></input>
+                        <text class='plus {{maxusStatus}}' bindtap='bindPlus'>+</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <!-- 详情 评价 -->
+        <view class='swipertab'>
+            <view class='tabitem {{currentab==0? "active" :""}}' data-current="0" bindtap='clicktab'>详情</view>
+            <view class='tabitem {{currentab==1? "active" :""}}' data-current="1" bindtap='clicktab'>评论</view>
+        </view>
+        <swiper bindchange="changetab" style='height:{{goods.des_img_height}}px;' class='detailswiper' duration='250' current='{{currentab}}'>
+            <!-- 详情 -->
+            <swiper-item>
+                    <image mode='widthFix' src='{{goods.des_img}}'></image>
+                    
+            </swiper-item>
+            <!-- 售后评价 -->
+            <swiper-item>
+                <view>
+                    <image mode='widthFix' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557549991876&di=6f9452c835d5a1dc7809bd7f7a18f3ea&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F013f995ade9eb7a801214a6187d430.jpg%401280w_1l_2o_100sh.jpg'></image>
+                </view>
+            </swiper-item>
+        </swiper>
+
+    </scroll-view>
+    <!-- 菜单 -->
+    <view class='buy' style='height:120rpx'>
+        <view class='collect'>
+            <image src='http://www.tongpankt.com/images/goods/index.png'></image>
+            <view>首页</view>
+        </view>
+        <view bindtap='addcollect' data-goods-id='{{goods.id}}' class='collect'>
+            <image wx:if='{{collectStatus != 1}}' src='http://www.tongpankt.com/images/goods/collect.png'></image>
+            <image wx:else src='http://www.tongpankt.com/images/goods/do_collect.png'></image>
+            <view>收藏</view>
+        </view>
+        <view class='cart cbg' bindtap='addToCart'>加入购物车</view>
+        <view class='cart nbg'>立即购买</view>
+    </view>
+</view>

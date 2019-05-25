@@ -1,0 +1,9 @@
+<!--pages/welcome/welcome.wxml-->
+<view class='outer'>
+    <view class='milld'>
+        <image mode='widthFix' class='img1' src='/img/logo.png'></image>
+        <view class='time'><text>{{time}}</text></view>
+        <image mode='widthFix' class='img2' src='/img/logo_text.png'></image>
+    </view>
+    
+</view>

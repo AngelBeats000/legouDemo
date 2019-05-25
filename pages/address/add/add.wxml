@@ -1,0 +1,18 @@
+<!--pages/address/add/add.wxml-->
+<view class='address'>
+    <form bindsubmit="formSubmit">
+        <view class='listRow'>
+            <text>收货人：</text>
+            <input name='address_name' confirm-type="next" type="text"></input>
+        </view>
+        <view class='listRow'>
+            <text>手机号：</text>
+            <input name='phone'  confirm-type="next" type='number'></input>
+        </view>
+        <view class='listRow'>
+            <text>收货地：</text>
+            <input name='address'  confirm-type="send" type='text'></input>
+        </view>
+        <button  class='addButton' form-type="submit">添加收货地址</button>
+    </form>
+</view>

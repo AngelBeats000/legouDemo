@@ -1,0 +1,24 @@
+<!--pages/cate/cate.wxml-->
+<view class='outer'>
+    <!-- 左侧导航 -->
+    <view class='left'>
+        <block wx:for="{{topCate}}">
+            <view bindtap='changId' wx:if="{{item.id===curr}}" data-id='{{item.id}}' class='navitem current'>{{item.cate_name}}</view>
+            <view bindtap='changId' wx:else data-id='{{item.id}}' class='navitem'>{{item.cate_name}}</view>
+        </block>
+    </view>
+
+    <!-- 右侧导航 -->
+    <view class='right'>
+        <view class='banner'>
+            <image mode='widthFix' mode='widthFix' src="{{rightImg}}"></image>
+        </view>
+        <view class='title'>---{{rightName}}---</view>
+        <view wx:for="{{sonCate}}" bindtap='cateList' data-cate-id='{{item.id}}' class='cateitem'>
+            <view class='cateimg'>
+                <image mode='widthFix' src='{{item.thumb}}'></image>
+            </view>
+            <view class='catename'>{{item.cate_name}}</view>
+        </view>
+    </view>
+</view>

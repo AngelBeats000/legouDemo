@@ -1,0 +1,18 @@
+<!--pages/address/edit/edit.wxml-->
+<view class='address'>
+    <form bindsubmit="formSubmit">
+        <view class='listRow'>
+            <text>收货人：</text>
+            <input name='address_name' confirm-type="next" value='{{address_name}}' type="text"></input>
+        </view>
+        <view class='listRow'>
+            <text>手机号：</text>
+            <input name='phone'  confirm-type="next" value='{{phone}}' type='number'></input>
+        </view>
+        <view class='listRow'>
+            <text>收货地：</text>
+            <input name='address'  confirm-type="send" value='{{address}}' type='text'></input>
+        </view>
+        <button  class='addButton' form-type="submit">修改收货地址</button>
+    </form>
+</view>

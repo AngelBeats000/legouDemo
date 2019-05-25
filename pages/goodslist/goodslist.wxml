@@ -1,0 +1,38 @@
+<!--pages/goodslist/goodslist.wxml-->
+<view>
+    <!-- 滚动分类 -->
+    <scroll-view class='nav' scroll-x>
+        <block wx:for="{{cates}}">
+            <navigator wx:if="{{item.id == cid}}" class='current' url='goodslist?cid={{item.id}}'>{{item.cate_name}}</navigator>
+            <navigator wx:else url='goodslist?cid={{item.id}}'>{{item.cate_name}}</navigator>
+        </block>
+    </scroll-view>
+
+    <view class='listheight'>
+
+
+        <!-- 商品 -->
+        <view class='newgoodstitle'>自在而潇洒的搭配</view>
+
+
+        <view class='goodslist'>
+            <!-- 单个商品 -->
+            <view class='goodsitem' wx:for="{{goodslist}}" bindtap='showGoods' data-goods-id='{{item.id}}'>
+                <view class='goodsimg'>
+                    <image mode='widthFix' src="{{item.thumb}}"></image>
+                </view>
+                <view class='goodsinfo'>
+                    <text class='goodstitle'>{{item.goods_name}}</text>
+                    <view class='goodsprice'>
+                        <text>￥{{item.shop_price}}</text>
+                        <image mode='widthFix' src='http://tongpankt.com/images/heart.png'></image>
+                    </view>
+                </view>
+            </view>
+
+
+
+          
+        </view>
+    </view>
+</view>
