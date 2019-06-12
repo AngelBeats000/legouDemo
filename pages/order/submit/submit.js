@@ -34,8 +34,37 @@ Page({
     },
 
     //下单
-    submit(){
-        
+    //下单
+    submit: function () {
+        var cartIds = this.data.cartIds;
+        var addressId = this.data.address.id;
+        var goodsTotalPrice = this.data.goodsTotalPrice;
+        var openid = app.globalData.openid;
+        var token = app.globalData.userInfo.token;
+        var url = app.globalData.http_url + 'Order/submitOrder';
+        var params = { cartIds: cartIds, addressId: addressId, goodsTotalPrice: goodsTotalPrice, openid: openid, token: token };
+        unit.wxRequest(url, params, data => {
+            if (data.code == 200) {
+                app.globalData.wxData = data.data;
+                app.globalData.order = data.order;
+                wx.showToast({
+                    title: '下单完成',
+                    icon: 'none',
+                    duration: 2000
+                });
+                setTimeout(function () {
+                    wx.navigateTo({
+                        url: '../payment/payment',
+                    })
+                }, 2000)
+            } else {
+                wx.showToast({
+                    title: '请先登录',
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        }, data => { }, data => { });
     },
 
     

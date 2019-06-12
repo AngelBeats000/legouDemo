@@ -108,6 +108,8 @@ register(){
     openid:'',
     login:false,
     cartIds:'',
-    goodsTotalPrice:''
+    goodsTotalPrice:'',
+    wxData:'',
+    order:''
   }
 })

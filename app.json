@@ -1,5 +1,6 @@
 {
     "pages": [
+        
         "pages/index/index",
         "pages/goods/goods",
         "pages/goodslist/goodslist",
@@ -14,7 +15,12 @@
         "pages/address/list/list",     
         "pages/address/add/add",
         "pages/address/edit/edit",
-        "pages/order/submit/submit"
+        "pages/order/payment/payment",
+        "pages/order/submit/submit",
+        "pages/order/detail/detail",
+        "pages/order/list/list",
+        "pages/order/pay/pay",
+        "pages/order/result/result"
     ],
     "window": {
         "backgroundTextStyle": "dark",

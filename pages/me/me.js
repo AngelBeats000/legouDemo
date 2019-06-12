@@ -19,6 +19,12 @@ Page({
         })
     },
 
+    navToOrderList: function () {
+        wx.navigateTo({
+            url: '../order/list/list'
+        })
+    },
+
     //登录
     login(e){
         wx.login({
